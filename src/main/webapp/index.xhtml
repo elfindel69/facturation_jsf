@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+	<title>Facturation</title>
+</h:head>
+
+<f:view>
+	<h:body>
+		<h1>Facturation</h1>
+			<p:dataTable id="clients" var="client"
+		value="#{clientsBean.clients}">
+
+		<f:facet name="header">
+			<h2>Liste des clients</h2>
+
+			<p:commandButton id="toggler" type="button" value="Options"
+				style="float:right" icon="ui-icon-calculator" />
+			<p:columnToggler datasource="clients" trigger="toggler" />
+		</f:facet>
+
+		<p:column headerText="Nom">
+			<h:outputText value="#{client.nom}" />
+		</p:column>
+
+		<p:column headerText="Factures">
+			<ui:repeat value="#{client.factures}" var="facture">
+				<h:form>
+   					<h:commandLink action="#{facturesBean.init(facture)}" value="Facture : #{facture.id}" />
+				</h:form>
+			</ui:repeat>
+		</p:column>
+
+		<p:column headerText="Actions">
+		 	<h:form>
+   				<h:commandLink action="#{modifierClientsBean.init(client)}" value="Modifier" />
+			</h:form>
+			 
+			<br/>
+				 <h:form>
+   					<h:commandLink rendered="#{client.factures.isEmpty()}" action="#{supprimerClientsBean.delete(client)}" value="Supprimer" />
+				</h:form>
+			<br/> 
+			<h:form>
+				<h:commandLink action="#{ajouterFacturesBean.init(client)}" value="Ajouter une facture" />
+			</h:form>
+		</p:column>
+		
+	</p:dataTable>
+	<h:form>
+		<h:commandLink action="#{ajouterClientBean.add()}" value="Ajouter un client" />
+	</h:form>
+	</h:body>
+</f:view>
+</html>
