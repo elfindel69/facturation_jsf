@@ -36,13 +36,13 @@ public class AjouterClientBean implements Serializable {
 	}
 	
 	public String add() {
-		return "ajouterClient";
+		return "ajouterClient?faces-redirect=true";
 	}
 	
 	
 	public String ajouterClient() {
 		clientService.ajouterClient(client.getNom());
-		return "index";
+		return "index?faces-redirect=true";
 	}
 
 }

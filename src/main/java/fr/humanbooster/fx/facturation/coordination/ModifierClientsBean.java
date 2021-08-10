@@ -49,7 +49,7 @@ public class ModifierClientsBean implements Serializable {
 	public String modifierClient() {
 		
 		clientService.modifierClient(client.getId(),client);
-		return "index";
+		return "index?faces-redirect=true";
 	}
 	
 

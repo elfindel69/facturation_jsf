@@ -48,13 +48,13 @@ public class AjouterFactureBean implements Serializable {
 	public String init(Client client) {
 		this.client = client;
 		this.client.setId(client.getId());
-		return "ajouterFacture";
+		return "ajouterFacture?faces-redirect=true";
 	}
 	
 	public String ajouterFacture() {
 
 		factureService.ajouterFacture(client.getId(), dateEcheance);
-		return "index";
+		return "index?faces-redirect=true";
 	}
 
 }

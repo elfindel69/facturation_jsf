@@ -41,7 +41,7 @@ public class FacturesBean implements Serializable {
 		this.facture = facture;
 		this.facture.setId(facture.getId());
 		
-		return "factures";
+		return "factures?faces-redirect=true";
 	}
 	
 	public float getTotal() {

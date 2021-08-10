@@ -79,7 +79,7 @@ public class AjouterLigneFactureBean implements Serializable {
 	public String init(Long factureID) {
 		this.factureID = factureID;
 		
-		return "ajouterLigneFacture";
+		return "ajouterLigneFacture?faces-redirect=true";
 	}
 	
 	
@@ -88,7 +88,7 @@ public class AjouterLigneFactureBean implements Serializable {
 		float quantite = Float.parseFloat(quantiteString);
 		float remise = Float.parseFloat(remiseString);
 		ligneFactureService.ajouterLigneFacture(factureID, prestationID, quantite, remise);
-		return "factures";
+		return "index?faces-redirect=true";
 	}
 
 }

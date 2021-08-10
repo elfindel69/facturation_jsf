@@ -37,7 +37,7 @@ public class SupprimerClientsBean implements Serializable {
 	
 	public String delete(Client client) {
 		clientService.supprimerClient(client);
-		return "index";
+		return "index?faces-redirect=true";
 	}
 	
 }
