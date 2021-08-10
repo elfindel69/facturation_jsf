@@ -46,7 +46,7 @@ public class ModifierClientsBean implements Serializable {
 		return "modifierClients";
 	}
 	
-	public String modifierClient(Client client) {
+	public String modifierClient() {
 		
 		clientService.modifierClient(client.getId(),client);
 		return "index";
