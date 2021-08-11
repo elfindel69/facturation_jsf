@@ -13,9 +13,9 @@ import fr.humanbooster.fx.facturation.service.impl.LigneFactureServiceImpl;
 import fr.humanbooster.fx.facturation.service.impl.PrestationServiceImpl;
 
 
-@ManagedBean(name = "ajouterLigneFactureBean")
+@ManagedBean(name = "ligneFactureBean")
 @SessionScoped
-public class AjouterLigneFactureBean implements Serializable {
+public class LigneFactureBean implements Serializable {
 
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class AjouterLigneFactureBean implements Serializable {
 	private String remiseString;
 	
 	
-	public AjouterLigneFactureBean() {
+	public LigneFactureBean() {
 	}
 
 	public Long getFactureID() {
@@ -79,7 +79,7 @@ public class AjouterLigneFactureBean implements Serializable {
 	public String init(Long factureID) {
 		this.factureID = factureID;
 		
-		return "ajouterLigneFacture?faces-redirect=true";
+		return "ligneFacture?faces-redirect=true";
 	}
 	
 	

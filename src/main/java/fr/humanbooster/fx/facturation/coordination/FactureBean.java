@@ -7,11 +7,12 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import fr.humanbooster.fx.facturation.business.Client;
+import fr.humanbooster.fx.facturation.business.Facture;
 import fr.humanbooster.fx.facturation.service.FactureService;
 import fr.humanbooster.fx.facturation.service.impl.FactureServiceImpl;
-@ManagedBean(name = "ajouterFacturesBean")
+@ManagedBean(name = "factureBean")
 @SessionScoped
-public class AjouterFactureBean implements Serializable {
+public class FactureBean implements Serializable {
 
 	/**
 	 * 
@@ -20,9 +21,11 @@ public class AjouterFactureBean implements Serializable {
 	
 	private static final FactureService factureService = new FactureServiceImpl();
 	private Client client;
+	private Facture facture;
 	private Date dateEcheance;
-	public AjouterFactureBean () {
+	public FactureBean () {
 		client = new Client();
+		facture = new Facture();
 	}
 
 	public Client getClient() {
@@ -31,6 +34,14 @@ public class AjouterFactureBean implements Serializable {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+	
+	public Facture getFacture() {
+		return facture;
+	}
+
+	public void setFacture(Facture facture) {
+		this.facture = facture;
 	}
 
 	public Date getDateEcheance() {
@@ -51,10 +62,22 @@ public class AjouterFactureBean implements Serializable {
 		return "ajouterFacture?faces-redirect=true";
 	}
 	
+	public String init(Facture facture) {
+		this.facture = facture;
+		this.facture.setId(facture.getId());
+		
+		return "facture?faces-redirect=true";
+	}
+	
 	public String ajouterFacture() {
 
 		factureService.ajouterFacture(client.getId(), dateEcheance);
 		return "index?faces-redirect=true";
+	}
+	
+	public float getTotal() {
+		
+		return factureService.calculerTotal(facture);
 	}
 
 }

@@ -18,8 +18,8 @@
 			<p:messages id="messages" showDetail="true" autoUpdate="true" closeable="true"/>
 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 			<h:outputLabel for="dateEcheance" value="Date d'écheance"/>
-			<p:datePicker id="basic" value="#{ajouterFacturesBean.dateEcheance}" />
-			<p:commandButton value="Ajouter" action="#{ajouterFacturesBean.ajouterFacture()}" ajax="false"/>
+			<p:datePicker id="basic" value="#{factureBean.dateEcheance}" />
+			<p:commandButton value="Ajouter" action="#{factureBean.ajouterFacture()}" ajax="false"/>
 			</h:panelGrid>
 		</h:form>	
 	</h:body>

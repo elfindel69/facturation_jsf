@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 
 import fr.humanbooster.fx.facturation.business.Client;
 import fr.humanbooster.fx.facturation.service.ClientService;
@@ -14,7 +14,7 @@ import fr.humanbooster.fx.facturation.service.impl.FactureServiceImpl;
 
 
 @ManagedBean(name = "clientsBean")
-@SessionScoped
+@RequestScoped
 public class ClientsBean implements Serializable {
 
 	/**
@@ -24,7 +24,7 @@ public class ClientsBean implements Serializable {
 	
 	private static final ClientService clientService = new ClientServiceImpl();
 	private static final FactureService factureService = new FactureServiceImpl();
-	private Client client;
+	private static Client client;
 	
 	public ClientsBean() {
 		client = new Client();
@@ -35,7 +35,7 @@ public class ClientsBean implements Serializable {
 	}
 
 	public void setClient(Client client) {
-		this.client = client;
+		ClientsBean.client = client;
 	}
 
 	public static ClientService getClientservice() {

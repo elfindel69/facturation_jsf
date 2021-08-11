@@ -13,20 +13,20 @@
 
 <f:view>
 	<h:body>
-		<h1>Facture #{facturesBean.facture.id}</h1>
-		<p>Client: #{facturesBean.facture.client.nom}</p>
-		<p>Date de création: #{facturesBean.facture.dateCreation}</p>
-		<p>Date d'echéance: #{facturesBean.facture.dateEcheance}</p>
+		<h1>Facture #{factureBean.facture.id}</h1>
+		<p>Client: #{factureBean.facture.client.nom}</p>
+		<p>Date de création: #{factureBean.facture.dateCreation}</p>
+		<p>Date d'echéance: #{factureBean.facture.dateEcheance}</p>
 		
 		<h2>Produits</h2>
-		<c:forEach var="ligne" items="#{facturesBean.facture.lignes}"> 
+		<c:forEach var="ligne" items="#{factureBean.facture.lignes}"> 
 			<p>Prestation: ${ligne.prestation.nom} - ${ligne.prestation.montant} €</p>
 			<p>Quantité: ${ligne.quantite}</p>
 			<p>Remise: ${ligne.remise}</p>
 		</c:forEach>
-		<p>total: ${facturesBean.total}</p>
+		<p>total: ${factureBean.total}</p>
 		<h:form>
-			<h:commandLink action="#{ajouterLigneFactureBean.init(facturesBean.facture.id)}" value="Ajouter une ligne" />
+			<h:commandLink action="#{ligneFactureBean.init(factureBean.facture.id)}" value="Ajouter une ligne" />
 		</h:form>
 	</h:body>
 </f:view>

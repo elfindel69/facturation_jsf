@@ -19,16 +19,16 @@
 			<p:messages id="messages" showDetail="true" autoUpdate="true" closeable="true"/>
 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 			 <p:outputLabel for="prestation" value="Prestation"/>
-			 <p:selectOneMenu id="prestation" value="#{ajouterLigneFactureBean.prestationID}" dynamic="true">
+			 <p:selectOneMenu id="prestation" value="#{ligneFactureBean.prestationID}" dynamic="true">
 	                 <f:selectItem itemLabel="Choisir une prestation" itemValue=""/>
-	                 <f:selectItems value="#{ajouterLigneFactureBean.prestations}" var="prestation"
+	                 <f:selectItems value="#{ligneFactureBean.prestations}" var="prestation"
 				itemLabel="#{prestation.nom}" itemValue="#{prestation.id}" />
 	             </p:selectOneMenu>
 			<h:outputLabel for="quantite" value="Quantité"/>
-			<h:inputText id="quantite" value="#{ajouterLigneFactureBean.quantiteString}"/>
+			<h:inputText id="quantite" value="#{ligneFactureBean.quantiteString}"/>
 			<h:outputLabel for="remise" value="Remise"/>
-			<h:inputText id="remise" value="#{ajouterLigneFactureBean.remiseString}"/>
-			<p:commandButton value="Ajouter" action="#{ajouterLigneFactureBean.ajouterLigne()}" ajax="false"/>
+			<h:inputText id="remise" value="#{ligneFactureBean.remiseString}"/>
+			<p:commandButton value="Ajouter" action="#{ligneFactureBean.ajouterLigne()}" ajax="false"/>
 			</h:panelGrid>
 		</h:form>	
 	</h:body>

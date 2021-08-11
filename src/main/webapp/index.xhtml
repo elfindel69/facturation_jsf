@@ -32,29 +32,29 @@
 		<p:column headerText="Factures">
 			<ui:repeat value="#{client.factures}" var="facture">
 				<h:form>
-   					<h:commandLink action="#{facturesBean.init(facture)}" value="Facture : #{facture.id}" />
+   					<h:commandLink action="#{factureBean.init(facture)}" value="Facture : #{facture.id}" />
 				</h:form>
 			</ui:repeat>
 		</p:column>
 
 		<p:column headerText="Actions">
 		 	<h:form>
-   				<h:commandLink action="#{modifierClientsBean.init(client)}" value="Modifier" />
+   				<h:commandLink action="#{clientBean.init(client)}" value="Modifier" />
 			</h:form>
 			 
 			<br/>
 				 <h:form>
-   					<h:commandLink rendered="#{client.factures.isEmpty()}" action="#{supprimerClientsBean.delete(client)}" value="Supprimer" />
+   					<h:commandLink rendered="#{client.factures.isEmpty()}" action="#{clientBean.supprimerClient(client)}" value="Supprimer" />
 				</h:form>
 			<br/> 
 			<h:form>
-				<h:commandLink action="#{ajouterFacturesBean.init(client)}" value="Ajouter une facture" />
+				<h:commandLink action="#{factureBean.init(client)}" value="Ajouter une facture" />
 			</h:form>
 		</p:column>
 		
 	</p:dataTable>
 	<h:form>
-		<h:commandLink action="#{ajouterClientBean.add()}" value="Ajouter un client" />
+		<h:commandLink action="#{clientBean.init(client)}" value="Ajouter un client" />
 	</h:form>
 	</h:body>
 </f:view>
